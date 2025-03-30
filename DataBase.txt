@@ -1,3 +1,3 @@
-Dipirona 500mg,30.0,caixa
-Bromoprida 250ml,20.0,Frasco
-Paracetamol 25mg,25.0,caixa
+Dipirona 500mg,30,caixa
+Bromoprida 250ml,20,Frasco
+Paracetamol 25mg,25,caixa

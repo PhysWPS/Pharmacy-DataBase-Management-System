@@ -53,16 +53,42 @@ public class ItemController {
     }
 
 
-    public void read(){
-        System.out.println("Itens em estoque: ");
-        try(BufferedReader br = new BufferedReader(new FileReader("DataBase.txt"))){
-            String linha;
-            while((linha = br.readLine()) != null){
-                System.out.println("- "+ linha);
+    public ArrayList<Item> read(){
+        try(BufferedReader reader= new BufferedReader(new FileReader("DataBase.txt"))){
+
+            String linha = reader.readLine();
+            ArrayList<String> linhas = new ArrayList<>();
+
+            while (linha != null){
+                System.out.println(linha);
+                linhas.add(linha); // adiciona ao tal arquivo temporario. Um arraylisit.
+                linha = reader.readLine();
+            }
+            System.out.println("DataBase Archive was read sucessfully");
+            /*
+            Converter linhas em objetos.
+             */
+            ArrayList<Item> itens = new ArrayList<>();
+            Item item;
+            String[] elementos;
+
+
+
+
+            for (int i = 0; i < linhas.size(); i++) {
+
+                elementos = linhas.get(i).split(",");
+                int quantidade = Integer.parseInt(elementos[1]);
+                item = new Item(elementos[0], quantidade, elementos[2]);
+                itens.add(item);
             }
 
+            System.out.println("Linhas convertidas para objetos com sucesso");
+            return itens;
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Não foi possível ler o arquivo: " +e.getMessage());
+            return null;
         }
     }
 

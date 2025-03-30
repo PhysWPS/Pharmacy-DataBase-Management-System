@@ -4,7 +4,7 @@ public class Item {
     // nome, quantidade, codigo e tipo.
     private int code;
     private String name;
-    private double quantity;
+    private int quantity;
     private String type;
 
     // para inicializar o item no código
@@ -41,7 +41,7 @@ public class Item {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
